@@ -1,1 +1,16 @@
+.flex-auto-row {
+	flex: 0 0 auto;
+}
 
+.button-area {
+	margin-top: 4em;
+	margin-bottom: 4em;
+}
+
+.flex-center-container {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
