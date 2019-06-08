@@ -37,4 +37,8 @@ export class BarcodableService {
 
 		return finalUrl;
 	}
+
+	public extractBarCodeTitle(srcData): string {
+		return JSON.parse(srcData).item.matched_items.title;
+	}
 }

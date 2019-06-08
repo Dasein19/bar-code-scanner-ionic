@@ -17,6 +17,14 @@
 		</ion-card-header>
 
 		<ion-card-content>
+			<ion-thumbnail slot="start" class="flex-center-container result-thumbnail" border-radius="3em">
+				<ion-spinner *ngIf="!barcodeImageUrl" name="bubbles"></ion-spinner>
+				<ion-img
+					*ngIf="barcodeImageUrl"
+					class="flex-auto-row result-img-frame"
+					[src]="barcodeImageUrl"
+				></ion-img>
+			</ion-thumbnail>
 			<div>
 				<div>
 					<p><b>Content</b>:</p>
