@@ -49,6 +49,6 @@ export class HomePage {
 	}
 
 	navigate() {
-		this.router.navigate(['/home/barcode-result']);
+		this.router.navigate(['/modules/home/barcode-result']);
 	}
 }
