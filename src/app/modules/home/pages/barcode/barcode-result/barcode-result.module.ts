@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { BarcodeResultPage } from './barcode-result.page';
+import { SharedModule } from '../../../../../shared/shared.module';
 
 const routes: Routes = [
 	{

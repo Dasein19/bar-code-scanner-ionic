@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BarcodeDataService } from './directive/data-transfer/barcode-data.service';
+import { BarcodeDataService } from './services/data-transfer/barcode-data.service';
+import { BarcodableService } from './services/utils/barcodable.service';
 
 @NgModule({
 	declarations: [],
 	imports: [CommonModule],
-	providers: [BarcodeDataService],
+	providers: [BarcodeDataService, BarcodableService],
 })
 export class SharedModule {}

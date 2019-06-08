@@ -5,7 +5,7 @@ const routes: Routes = [
 	{ path: '', redirectTo: 'home', pathMatch: 'full' },
 	{ path: 'home', loadChildren: './modules/home/home.module#HomePageModule' },
 	{
-		path: 'modules/home/barcode-result',
+		path: 'home/barcode-result',
 		loadChildren: './modules/home/pages/barcode/barcode-result/barcode-result.module#BarcodeResultPageModule',
 	},
 ];

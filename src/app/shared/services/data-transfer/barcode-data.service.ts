@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
 import { BarcodeScanResult } from '@ionic-native/barcode-scanner/ngx';
 
-@Injectable({
-	providedIn: 'root',
-})
+@Injectable()
 export class BarcodeDataService {
-	barcodeScanResult: BarcodeScanResult;
+	private barcodeScanResult: BarcodeScanResult;
 	constructor() {}
 
 	public setBarCodeScanResult(barcodeScanResult: BarcodeScanResult): void {
-		this.barcodeScanResult = barcodeScanResult;
+		this.barcodeScanResult = JSON.parse(JSON.stringify(barcodeScanResult));
 	}
 
 	public getBarCodeScanResult(): BarcodeScanResult {
-		return this.barcodeScanResult;
+		return JSON.parse(JSON.stringify(this.barcodeScanResult));
 	}
 }

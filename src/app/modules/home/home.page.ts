@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { BarcodeScanner, BarcodeScannerOptions, BarcodeScanResult } from '@ionic-native/barcode-scanner/ngx';
 import { Vibration } from '@ionic-native/vibration/ngx';
-import { BarcodeDataService } from '../../shared/directive/data-transfer/barcode-data.service';
+import { BarcodeDataService } from '../../shared/services/data-transfer/barcode-data.service';
 
 @Component({
 	selector: 'app-home',
@@ -48,7 +48,17 @@ export class HomePage {
 			});
 	}
 
+	openTestBarCodeScanner() {
+		var mockedResult: BarcodeScanResult = {
+			cancelled: false,
+			format: 'UPC_E',
+			text: '190198155795',
+		};
+		this.barcodeDataService.setBarCodeScanResult(mockedResult);
+		this.navigate();
+	}
+
 	navigate() {
-		this.router.navigate(['/modules/home/barcode-result']);
+		this.router.navigate(['/home/barcode-result']);
 	}
 }

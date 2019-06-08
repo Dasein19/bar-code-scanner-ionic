@@ -18,7 +18,6 @@ import { SharedModule } from '../../shared/shared.module';
 				component: HomePage,
 			},
 		]),
-		SharedModule,
 	],
 	declarations: [HomePage],
 })

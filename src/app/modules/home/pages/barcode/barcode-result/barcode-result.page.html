@@ -1,6 +1,6 @@
 <ion-header>
 	<ion-toolbar>
-		<ion-title>barcode-result</ion-title>
+		<ion-title color="primary" class="result-title">Barcode Scan Result</ion-title>
 	</ion-toolbar>
 </ion-header>
 
@@ -13,7 +13,15 @@
 		</ion-card-header>
 
 		<ion-card-content>
-			{{ scanResult }}
+			<div>
+				<p><b>Format</b>: {{ scanResult.format }}</p>
+			</div>
+			<div>
+				<p><b>Scan Code</b>: {{ scanResult.text }}</p>
+			</div>
+			<div>
+				<p><b>Content</b>: {{ codeResult }}</p>
+			</div>
 		</ion-card-content>
 	</ion-card>
 </ion-content>
