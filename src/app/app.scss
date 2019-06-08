@@ -9,8 +9,13 @@ ion-loading.ionic-loader {
 	.loading-wrapper {
 		background: transparent;
 		box-shadow: none;
-		width: 8em;
+		width: 200px !important;
+		height: 200px !important;
 	}
+}
+
+ion-loading ion-spinner {
+	transform: scale(4);
 }
 
 .flex-auto-row {

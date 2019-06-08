@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CodeFormats } from './models/barcodable.formats';
+import { HTTP, HTTPResponse } from '@ionic-native/http/ngx';
 
 @Injectable({
 	providedIn: 'root',
@@ -9,9 +10,9 @@ export class BarcodableService {
 	barcodableBaseUrl = 'https://api.barcodable.com/api/v1';
 	codeFormatsEnum = CodeFormats;
 
-	constructor() {}
+	constructor(private http: HTTP) {}
 
-	public buildBarcodableUrl(codeFormat: string, codeNumber: string): string {
+	private buildBarcodableUrl(codeFormat: string, codeNumber: string): string {
 		let finalUrl: string;
 		let trgFormat: string;
 
@@ -38,7 +39,12 @@ export class BarcodableService {
 		return finalUrl;
 	}
 
+	public getBarcodeInfo(format: string, text: string): Promise<HTTPResponse> {
+		let barcodableUrl = this.buildBarcodableUrl(format, text);
+		return this.http.get(barcodableUrl, {}, {});
+	}
+
 	public extractBarCodeTitle(srcData): string {
-		return JSON.parse(srcData).item.matched_items.title;
+		return JSON.parse(srcData).item.matched_items[0].title;
 	}
 }
