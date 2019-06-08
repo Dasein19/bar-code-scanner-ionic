@@ -14,6 +14,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Vibration } from '@ionic-native/vibration/ngx';
 import { SharedModule } from './shared/shared.module';
 
+import { HTTP } from '@ionic-native/http/ngx';
+
 @NgModule({
 	declarations: [AppComponent],
 	entryComponents: [],
@@ -24,6 +26,7 @@ import { SharedModule } from './shared/shared.module';
 		{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 		BarcodeScanner,
 		Vibration,
+		HTTP,
 	],
 	bootstrap: [AppComponent],
 })

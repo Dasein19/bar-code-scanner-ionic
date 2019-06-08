@@ -12,8 +12,8 @@ import { BarcodeDataService } from '../../shared/services/data-transfer/barcode-
 })
 export class HomePage {
 	constructor(
-		private barcodeScanner: BarcodeScanner,
 		private router: Router,
+		private barcodeScanner: BarcodeScanner,
 		public vibration: Vibration,
 		private barcodeDataService: BarcodeDataService
 	) {}

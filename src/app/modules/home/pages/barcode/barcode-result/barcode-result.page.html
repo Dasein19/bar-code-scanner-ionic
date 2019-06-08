@@ -1,6 +1,6 @@
 <ion-header>
 	<ion-toolbar>
-		<ion-title color="primary" class="result-title">Barcode Scan Result</ion-title>
+		<ion-title color="primary" class="result-title">Scan Result</ion-title>
 	</ion-toolbar>
 </ion-header>
 
@@ -8,19 +8,20 @@
 	<div id="ion-title"></div>
 	<ion-card ng-if="scanResult">
 		<ion-card-header>
-			<ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-			<ion-card-title>Card Title</ion-card-title>
+			<ion-card-subtitle
+				><p><b>Format</b>: {{ scanResult.format }}</p></ion-card-subtitle
+			>
+			<ion-card-title
+				><p><b>Scan Code</b>: {{ scanResult.text }}</p></ion-card-title
+			>
 		</ion-card-header>
 
 		<ion-card-content>
 			<div>
-				<p><b>Format</b>: {{ scanResult.format }}</p>
-			</div>
-			<div>
-				<p><b>Scan Code</b>: {{ scanResult.text }}</p>
-			</div>
-			<div>
-				<p><b>Content</b>: {{ codeResult }}</p>
+				<div>
+					<p><b>Content</b>:</p>
+				</div>
+				<div>{{ codeResult | json }}</div>
 			</div>
 		</ion-card-content>
 	</ion-card>
