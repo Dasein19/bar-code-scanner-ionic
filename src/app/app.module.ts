@@ -10,12 +10,19 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 @NgModule({
 	declarations: [AppComponent],
 	entryComponents: [],
 	imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-	providers: [StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, BarcodeScanner],
+	providers: [
+		StatusBar,
+		SplashScreen,
+		{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+		BarcodeScanner,
+		Vibration,
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

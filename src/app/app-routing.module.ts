@@ -6,7 +6,7 @@ const routes: Routes = [
 	{ path: 'home', loadChildren: './home/home.module#HomePageModule' },
 	{
 		path: 'home/barcode-result',
-		loadChildren: './home/pages/barcode/barcode-result/barcode-result.module#BarcodeResultPage',
+		loadChildren: './home/pages/barcode/barcode-result/barcode-result.module#BarcodeResultPageModule',
 	},
 ];
 
