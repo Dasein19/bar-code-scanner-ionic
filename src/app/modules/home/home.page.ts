@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
+import { BarcodeScanner, BarcodeScannerOptions, BarcodeScanResult } from '@ionic-native/barcode-scanner/ngx';
 import { Vibration } from '@ionic-native/vibration/ngx';
+import { BarcodeDataService } from '../../shared/directive/data-transfer/barcode-data.service';
 
 @Component({
 	selector: 'app-home',
@@ -10,9 +11,13 @@ import { Vibration } from '@ionic-native/vibration/ngx';
 	styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-	constructor(private barcodeScanner: BarcodeScanner, private router: Router, public vibration: Vibration) {}
+	constructor(
+		private barcodeScanner: BarcodeScanner,
+		private router: Router,
+		public vibration: Vibration,
+		private barcodeDataService: BarcodeDataService
+	) {}
 
-	scanResult: any;
 	barcodeScannerOptions: BarcodeScannerOptions;
 
 	ngOnInit(): void {
@@ -30,17 +35,16 @@ export class HomePage {
 	}
 
 	openBarCodeScanner() {
-		let self = this;
 		this.barcodeScanner
 			.scan(this.barcodeScannerOptions)
 			.then(barcodeData => {
 				console.log('Barcode data', barcodeData);
-				this.scanResult = barcodeData;
-				this.navigate();
+				this.barcodeDataService.setBarCodeScanResult(barcodeData);
 				this.vibration.vibrate(1000);
+				this.navigate();
 			})
 			.catch(err => {
-				console.log('Error', err);
+				console.error('Error', err);
 			});
 	}
 

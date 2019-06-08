@@ -1,20 +1,11 @@
 <ion-header>
 	<ion-toolbar>
-		<ion-title>
-			Ionic Blank
-		</ion-title>
+		<ion-title>barcode-result</ion-title>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-	<div class="ion-padding">
-		The world is your oyster.
-		<p>
-			If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will
-			be your guide.
-		</p>
-		<ion-button color="success" (click)="openBarCodeScanner()">Scan a Barcode</ion-button>
-	</div>
+	<div id="ion-title"></div>
 	<ion-card ng-if="scanResult">
 		<ion-card-header>
 			<ion-card-subtitle>Card Subtitle</ion-card-subtitle>

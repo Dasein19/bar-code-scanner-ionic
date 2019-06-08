@@ -8,19 +8,14 @@ import { IonicModule } from '@ionic/angular';
 import { BarcodeResultPage } from './barcode-result.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: BarcodeResultPage
-  }
+	{
+		path: '',
+		component: BarcodeResultPage,
+	},
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
-  declarations: [BarcodeResultPage]
+	imports: [CommonModule, FormsModule, IonicModule, RouterModule.forChild(routes)],
+	declarations: [BarcodeResultPage],
 })
 export class BarcodeResultPageModule {}
