@@ -32,6 +32,7 @@ export class BarcodeResultPage implements OnInit {
 			});
 	}
 
+
 	initializeBarcodeResult() {
 		this.scanResult = this.barcodeDataService.getBarCodeScanResult();
 		this.barcodableService.getBarcodeInfo(this.scanResult.format, this.scanResult.text).then(
@@ -40,6 +41,10 @@ export class BarcodeResultPage implements OnInit {
 				this.codeResult = JSON.parse(res.data);
 				//TODO: probably it is possible to query directly for a single result
 				let barCodeDescription = this.barcodableService.extractBarCodeTitle(res.data);
+				if (barCodeDescription == null) {
+					this.loadingController.dismiss();
+					return;
+				}
 				this.googleSearchService.searchForImage(barCodeDescription).then(
 					(res: HTTPResponse) => {
 						console.log(res);
@@ -56,6 +61,7 @@ export class BarcodeResultPage implements OnInit {
 			(err: HTTPResponse) => {
 				console.error(err);
 				this.loadingController.dismiss();
+				this.barcodeImageUrl = null;
 				this.codeResult = 'Could not retrieve any info...';
 			}
 		);
