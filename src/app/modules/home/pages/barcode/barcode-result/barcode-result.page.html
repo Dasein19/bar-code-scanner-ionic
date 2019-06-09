@@ -21,6 +21,7 @@
 				<ion-spinner *ngIf="!barcodeImageUrl" name="bubbles"></ion-spinner>
 				<ion-img
 					*ngIf="barcodeImageUrl"
+					alt="Cannot retrieve image"
 					class="flex-auto-row result-frame barcode-image"
 					[src]="barcodeImageUrl"
 				></ion-img>
