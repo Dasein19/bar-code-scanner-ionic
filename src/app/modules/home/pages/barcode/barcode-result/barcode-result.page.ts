@@ -32,7 +32,6 @@ export class BarcodeResultPage implements OnInit {
 			});
 	}
 
-
 	initializeBarcodeResult() {
 		this.scanResult = this.barcodeDataService.getBarCodeScanResult();
 		this.barcodableService.getBarcodeInfo(this.scanResult.format, this.scanResult.text).then(
@@ -61,7 +60,7 @@ export class BarcodeResultPage implements OnInit {
 			(err: HTTPResponse) => {
 				console.error(err);
 				this.loadingController.dismiss();
-				this.barcodeImageUrl = null;
+				this.barcodeImageUrl = ' ';
 				this.codeResult = 'Could not retrieve any info...';
 			}
 		);
