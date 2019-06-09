@@ -39,9 +39,11 @@ export class HomePage {
 			.scan(this.barcodeScannerOptions)
 			.then(barcodeData => {
 				console.log('Barcode data', barcodeData);
-				this.barcodeDataService.setBarCodeScanResult(barcodeData);
-				this.vibration.vibrate(1000);
-				this.navigate();
+				if (!barcodeData.cancelled) {
+					this.barcodeDataService.setBarCodeScanResult(barcodeData);
+					this.vibration.vibrate(1000);
+					this.navigate();
+				}
 			})
 			.catch(err => {
 				console.error('Error', err);
