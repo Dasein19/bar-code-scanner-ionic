@@ -45,6 +45,11 @@ export class BarcodableService {
 	}
 
 	public extractBarCodeTitle(srcData): string {
-		return JSON.parse(srcData).item.matched_items[0].title;
+		try {
+			return JSON.parse(srcData).item.matched_items[0].title;
+		} catch (err) {
+			console.log(err);
+			return null;
+		}
 	}
 }

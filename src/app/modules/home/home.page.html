@@ -1,6 +1,6 @@
 <ion-header>
 	<ion-toolbar>
-		<ion-title>
+		<ion-title color="primary" class="home-page-title">
 			Bar Code Scan Reader
 		</ion-title>
 	</ion-toolbar>
@@ -8,10 +8,12 @@
 
 <ion-content>
 	<div class="ion-padding">
-		This Application born to test ionic functionalities, starting from a barcode scanner.
-		<p>
-			Please press the button to begin the scan!
-		</p>
+		<div class="body-text">
+			This Application born to test ionic functionalities, starting from a barcode scanner.
+			<p>
+				Please press the button to begin the scan!
+			</p>
+		</div>
 		<div class="flex-center-container button-area">
 			<ion-button class="flex-auto-row" color="primary" (click)="openBarCodeScanner()">Scan a Barcode</ion-button>
 		</div>

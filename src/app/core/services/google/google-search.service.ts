@@ -15,12 +15,13 @@ export class GoogleSearchService {
 	private buildUrl(queryText: string): string {
 		return (
 			this.baseGoogleServiceUrl +
-			'?q=' +
-			encodeURIComponent(queryText) +
+			'?key=' +
+			encodeURIComponent(this.GoogleCredentialsEnum.API_KEY) +
 			'&cx=' +
 			encodeURIComponent(this.GoogleCredentialsEnum.CX) +
-			'&fileType=jpg%2Cpng&key=' +
-			encodeURIComponent(this.GoogleCredentialsEnum.API_KEY)
+			'&q=' +
+			encodeURIComponent(queryText) +
+			'&searchType=image&fileType=jpg&imgSize=small&alt=json'
 		);
 	}
 
@@ -29,6 +30,11 @@ export class GoogleSearchService {
 	}
 
 	public extractImageFromResult(serviceResponse: any): string {
-		return JSON.parse(serviceResponse).items[0].pagemap.cse_thumbnail[0].src;
+		try {
+			return JSON.parse(serviceResponse).items[0].link;
+		} catch (err) {
+			console.error(err);
+			return null;
+		}
 	}
 }
