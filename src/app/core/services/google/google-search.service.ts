@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { GoogleCredentials } from '../../authentication/google-credentials/google-credentials.model';
 import { HTTP, HTTPResponse } from '@ionic-native/http/ngx';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class GoogleSearchService {
-	GoogleCredentialsEnum = GoogleCredentials;
 	baseGoogleServiceUrl: string = 'https://www.googleapis.com/customsearch/v1';
 
 	//values defaulted to jpg...to parameterize
@@ -16,9 +15,9 @@ export class GoogleSearchService {
 		return (
 			this.baseGoogleServiceUrl +
 			'?key=' +
-			encodeURIComponent(this.GoogleCredentialsEnum.API_KEY) +
+			encodeURIComponent(environment.API_KEY) +
 			'&cx=' +
-			encodeURIComponent(this.GoogleCredentialsEnum.CX) +
+			encodeURIComponent(environment.CX) +
 			'&q=' +
 			encodeURIComponent(queryText) +
 			'&searchType=image&fileType=jpg&imgSize=small&alt=json'
