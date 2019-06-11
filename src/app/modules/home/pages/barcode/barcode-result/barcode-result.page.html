@@ -9,10 +9,10 @@
 	<ion-card ng-if="scanResult">
 		<ion-card-header>
 			<ion-card-subtitle
-				><p><b>Format</b>: {{ scanResult.format }}</p></ion-card-subtitle
+				><p><strong>Format</strong>: {{ scanResult.format }}</p></ion-card-subtitle
 			>
 			<ion-card-title
-				><p><b>Scan Code</b>: {{ scanResult.text }}</p></ion-card-title
+				><p><strong>Scan Code</strong>: {{ scanResult.text }}</p></ion-card-title
 			>
 		</ion-card-header>
 
@@ -28,7 +28,7 @@
 			</ion-thumbnail>
 			<div>
 				<div>
-					<p><b>Content</b>:</p>
+					<p><strong>Content</strong>:</p>
 				</div>
 				<div><ion-spinner *ngIf="!codeResult" name="bubbles"></ion-spinner></div>
 				<div *ngIf="codeResult">{{ codeResult | json }}</div>
